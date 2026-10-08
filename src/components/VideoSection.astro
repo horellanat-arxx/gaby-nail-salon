@@ -1,0 +1,48 @@
+---
+interface Props {
+  videoUrl?: string;
+  title?: string;
+}
+
+const { videoUrl = "/video-demo.mp4", title = "Conoce nuestro trabajo" } = Astro.props;
+---
+
+<section class="py-12 px-6 w-full max-w-md mx-auto">
+  <h2 class="text-xl font-bold tracking-tight text-center mb-4 text-neutral-200">
+    {title}
+  </h2>
+  
+  <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-neutral-800 bg-neutral-900 aspect-video">
+    <video 
+      id="scroll-video"
+      class="w-full h-full object-cover"
+      src={videoUrl}
+      muted
+      playsinline
+      loop
+      preload="metadata"
+    >
+    </video>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const video = document.getElementById('scroll-video') as HTMLVideoElement;
+
+  if (video) {
+    ScrollTrigger.create({
+      trigger: video,
+      start: 'top 75%',
+      end: 'bottom 20%',
+      onEnter: () => video.play().catch(() => {}),
+      onLeave: () => video.pause(),
+      onEnterBack: () => video.play().catch(() => {}),
+      onLeaveBack: () => video.pause()
+    });
+  }
+</script>

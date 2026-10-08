@@ -1,0 +1,67 @@
+---
+---
+
+<section class="w-full bg-black text-white py-12 px-4 sm:px-8 max-w-7xl mx-auto border-b border-neutral-900">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      
+      <!-- Foto Principal a la Izquierda -->
+      <div class="aspect-[4/5] sm:aspect-square bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800">
+        <img 
+          src="/hero-main.jpg" 
+          alt="Gaby Nail Salón Work" 
+          class="w-full h-full object-cover"
+        />
+      </div>
+  
+      <!-- Contenido a la Derecha -->
+      <div class="flex flex-col justify-center space-y-6">
+        
+        <div>
+          <!-- Logo PNG transparente arriba del subtítulo -->
+          <div class="mb-4">
+            <img 
+              src="/logo.png" 
+              alt="Gaby Nail Salón 502" 
+              class="h-28 sm:h-36 md:h-44 w-auto object-contain"
+            />
+          </div>
+  
+          <span class="inline-block text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-3">
+            TU MANICURISTA DE CONFIANZA
+          </span>
+          
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-none">
+            CONSIÉNTETE CON UÑAS DE PRINCESA
+          </h1>
+        </div>
+  
+        <p class="text-xs sm:text-sm text-neutral-400 uppercase tracking-widest leading-relaxed">
+          ACRÍLICO · SOFT GEL · RUBBER · ACRIPIE. DISEÑOS EXCLUSIVOS Y DELICADOS PARA LUCIR UNAS MANOS ESPECTACULARES.
+        </p>
+  
+        <div class="pt-4 flex items-center justify-between border-t border-neutral-900">
+          <span class="text-xs font-semibold uppercase tracking-wider text-neutral-300">
+             TAXISCO, SANTA ROSA
+          </span>
+  
+          <!-- Botón con ID y función JavaScript para abrir el modal -->
+          <button 
+            id="btn-open-booking"
+            type="button"
+            class="px-6 py-3 rounded-md bg-white text-black font-bold text-xs uppercase tracking-widest hover:bg-neutral-200 active:scale-95 transition-all cursor-pointer"
+          >
+            AGENDAR CITA
+          </button>
+        </div>
+  
+      </div>
+  
+    </div>
+  </section>
+  
+  <script>
+    // Script para conectar el botón con la apertura del modal
+    document.getElementById('btn-open-booking')?.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('open-booking-modal'));
+    });
+  </script>

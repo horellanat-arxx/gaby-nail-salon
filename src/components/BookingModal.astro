@@ -1,0 +1,77 @@
+---
+---
+
+<div id="booking-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div class="bg-neutral-950 border border-neutral-800 rounded-2xl max-w-md w-full p-6 text-white shadow-2xl relative">
+      
+      <!-- Botón Cerrar -->
+      <button id="close-modal" type="button" class="absolute top-4 right-4 text-neutral-400 hover:text-white text-xl cursor-pointer">
+        ✕
+      </button>
+  
+      <h3 class="text-xl font-bold uppercase tracking-wider mb-2">Agendar Cita</h3>
+      <p class="text-xs text-neutral-400 mb-6">Completa tus datos para coordinar tu cita por WhatsApp.</p>
+  
+      <form id="booking-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Nombre Completo</label>
+          <input type="text" id="client-name" required placeholder="Tu nombre" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-white" />
+        </div>
+  
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Servicio</label>
+          <select id="client-service" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-white">
+            <option value="ACRÍLICO">Acrílico </option>
+            <option value="SOFT GEL">Soft Gel </option>
+            <option value="RUBBER BASE">Rubber Base </option>
+            <option value="ACRIPIE">Acripie </option>
+          </select>
+        </div>
+  
+        <div>
+          <label class="block text-xs font-semibold text-neutral-300 uppercase tracking-wider mb-1">Día y Hora Preferida</label>
+          <input type="text" id="client-date" required placeholder="Ej: Sábado a las 3:00 PM" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg p-3 text-sm text-white focus:outline-none focus:border-white" />
+        </div>
+  
+        <button type="submit" class="w-full py-3.5 bg-white text-black font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-neutral-200 transition-all mt-4 cursor-pointer">
+          Confirmar por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    const modal = document.getElementById('booking-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const form = document.getElementById('booking-form');
+    const serviceSelect = document.getElementById('client-service') as HTMLSelectElement;
+  
+    // Escuchar apertura de modal y pre-seleccionar el servicio enviado
+    window.addEventListener('open-booking-modal', (e: any) => {
+      modal?.classList.remove('hidden');
+      modal?.classList.add('flex');
+  
+      if (e.detail && e.detail.service && serviceSelect) {
+        serviceSelect.value = e.detail.service;
+      }
+    });
+  
+    // Cerrar modal
+    closeBtn?.addEventListener('click', () => {
+      modal?.classList.add('hidden');
+      modal?.classList.remove('flex');
+    });
+  
+    // Enviar WhatsApp
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('client-name') as HTMLInputElement).value;
+      const service = serviceSelect.value;
+      const date = (document.getElementById('client-date') as HTMLInputElement).value;
+  
+      const phone = "50236366447"; // Pon tu número aquí con código de país
+      const message = `Hola Gaby Nail Salón, mi nombre es ${name}. Me gustaría agendar una cita para *${service}* el día/hora: ${date}.`;
+      
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
+    });
+  </script>

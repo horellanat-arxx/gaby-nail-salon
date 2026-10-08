@@ -1,0 +1,80 @@
+---
+---
+
+<footer class="w-full bg-black text-white pt-20 pb-12 px-4 sm:px-8 border-t border-neutral-900">
+    <div class="max-w-7xl mx-auto space-y-12">
+      
+      <!-- Fila Superior: Marca + Información clave -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        
+        <!-- Logo y Descripción Corta -->
+        <div class="space-y-4">
+          <img 
+            src="/logo.png" 
+            alt="Gaby Nail Salón 502" 
+            class="h-16 w-auto object-contain"
+          />
+          <p class="text-xs text-neutral-400 uppercase tracking-widest leading-relaxed max-w-sm">
+            Especialistas en cuidado, estética y esculpido de uñas. Diseños exclusivos con acabados de alta duración.
+          </p>
+        </div>
+  
+        <!-- Horarios y Ubicación -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-300">Ubicación & Atención</h4>
+          <ul class="space-y-2 text-xs text-neutral-400 uppercase tracking-wider">
+            <li>Taxisco, Santa Rosa, Guatemala</li>
+            <li> Lunes a Viernes</li>
+          </ul>
+        </div>
+  
+        <!-- Contacto Directo / WhatsApp -->
+        <div class="space-y-3 md:text-right">
+          <h4 class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-300">Contacto Directo</h4>
+          
+          <!-- Texto de acompañamiento -->
+          <p class="text-xs text-neutral-400 uppercase tracking-wider leading-relaxed">
+            ¿Tienes una duda? Platícamela al WhatsApp.
+          </p>
+  
+          <div>
+            <a 
+              href="https://wa.me/50236366447?text=Hola%20Gaby%20Nail%20Sal%C3%B3n,%20tengo%20una%20duda" 
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-white text-black font-bold text-xs uppercase tracking-widest hover:bg-neutral-200 active:scale-95 transition-all cursor-pointer mt-1"
+            >
+              <span>Escribir a WhatsApp</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </a>
+          </div>
+        </div>
+  
+      </div>
+  
+      <!-- Separador fino -->
+      <div class="h-[1px] w-full bg-neutral-900"></div>
+  
+      <!-- Fila Inferior: Copyright + Scroll Arriba -->
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-neutral-500 uppercase tracking-widest">
+        <p>© {new Date().getFullYear()} Gaby Nail Salón 502. Todos los derechos reservados.</p>
+        
+        <button 
+          id="btn-scroll-top"
+          type="button"
+          class="hover:text-white transition-colors cursor-pointer flex items-center gap-2"
+        >
+          <span>Volver arriba</span>
+          <span>↑</span>
+        </button>
+      </div>
+  
+    </div>
+  </footer>
+  
+  <script>
+    // Script para volver al inicio suavemente
+    document.getElementById('btn-scroll-top')?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
